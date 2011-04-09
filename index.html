@@ -5,49 +5,7 @@
 
     <link rel="stylesheet" href="css/style.css" media="screen, print" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(function() {
-        var digits = [];
-
-        function setLock(state, callback) {
-          $.ajax({
-            url: 'http://api.pachube.com/v1/feeds/22380/datastreams/lock_state.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
-            type: 'PUT',
-            processData: false,
-            data: state.toString(),
-            success: callback
-          });
-        }
-
-        function openLock(callback) {
-          setLock(1, callback);
-        }
-
-        function closeLock(callback) {
-          setLock(0, callback);
-        }
-
-        $('.number').click(function() {
-          digits.push($(this).attr('id'));
-          //console.log(digits);
-        });
-
-        $('#cancel').click(function() {
-          digits = [];
-        });
-
-        $('#ok').click(function() {
-          if (digits.join('') == "1234") {
-            openLock(function() {
-              setTimeout(function() {
-                closeLock();
-              }, 15000); // 15 seconds
-            });
-          }
-          digits = [];
-        });
-      });
-    </script>
+    <script type="text/javascript" src="js/index.js"></script>
   </head>
   <body>
     <div id="dialpad" class="container">
