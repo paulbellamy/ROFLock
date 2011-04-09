@@ -19,8 +19,8 @@ html, body {
 }
 
 a {
+  background: #444 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAyCAYAAACd+7GKAAAAJklEQVQIW2P4//+/NxMDA8N/JgYGhn+oLDQu7Vk/GP4zMXDQx3IA0To1YWcEwtQAAAAASUVORK5CYII=") repeat-x;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #222;
   display: inline-block;
   margin: 5px;
   width: 75px;
@@ -31,8 +31,9 @@ a {
   line-height: 94px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -moz-box-shadow: 0 1px 3px #999;
-  -webkit-box-shadow: 0 1px 3px #999;
+  box-shadow: 0 -1px 1px rgba(200, 200, 200, 0.49);
+  -moz-box-shadow: 0 -1px 1px rgba(200, 200, 200, 0.49);
+  -webkit-box-shadow: rgba(200, 200, 200, 0.49) 0px -1px 1px;
   text-shadow: 0 -1px 1px #222;
   border-bottom: 1px solid #222;
   position: relative;
@@ -40,9 +41,11 @@ a {
 }
 
 a:active {
-  background-color: #444;
-  -moz-box-shadow: 0 -1px -3px #999;
-  -webkit-box-shadow: 0 -1px -3px #999;
+  box-shadow: 0 1px 1px rgba(200, 200, 200, 0.49);
+  -moz-box-shadow: 0 1px 1px rgba(200, 200, 200, 0.49);
+  -webkit-box-shadow: rgba(200, 200, 200, 0.49) 0px 1px 1px;
+  background: #222 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAyCAYAAACd+7GKAAAAJklEQVQIW2P4//+/NxMDA8N/JgYGhn+oLDQu7Vk/GP4zMXDQx3IA0To1YWcEwtQAAAAASUVORK5CYII=") repeat-x;
+  font-size: 0.97em;
   border-bottom: 1px solid #222;
 }
 
