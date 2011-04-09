@@ -11,7 +11,7 @@ $(function() {
 
   function openLock(name, callback) {
     $.ajax({
-      url: 'http://api.pachube.com/v1/feeds/22380/datastreams.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
+      url: 'http://api.pachube.com/v1/feeds/22380.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
       type: 'PUT',
       processData: false,
       data: "1,Paul",
