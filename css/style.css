@@ -1,30 +1,34 @@
 html, body, div {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 html, body {
   background-color: #555;
-  height: 100%;
+  height: 480px;
+  width: 320px;
 }
 
 #dialpad {
-  float:left;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 480px;
+  width: 320px;
 }
 
 a {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: #222;
   display: inline-block;
-  padding: 10px 20px 12px;
-  width: 41px;
-  height: 81px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 75px;
+  height: 99px;
   color: #ddd;
   text-decoration: none;
   font-weight: bold;
-  line-height: 1;
+  line-height: 99px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-box-shadow: 0 1px 3px #999;
@@ -45,9 +49,8 @@ a:active {
 .row {
   float: left;
   clear: both;
-  margin: 10px;
-  height: 104px;
-  width: 100%;
+  height: 120px;
+  width: 320px;
 }
 
 #cancel {
@@ -63,8 +66,6 @@ a:active {
 
 #ok {
   background-color: #262;
-  padding-left: 10px;
-  padding-right: 30px;
 }
 
 #ok:active {
