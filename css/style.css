@@ -13,8 +13,9 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 480px;
+  height: 455px;
   width: 320px;
+  padding-top: 5px;
 }
 
 a {
@@ -22,13 +23,12 @@ a {
   background: #222;
   display: inline-block;
   margin: 5px;
-  margin-top: 10px;
   width: 75px;
-  height: 99px;
+  height: 94px;
   color: #ddd;
   text-decoration: none;
   font-weight: bold;
-  line-height: 99px;
+  line-height: 94px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-box-shadow: 0 1px 3px #999;
@@ -49,8 +49,8 @@ a:active {
 .row {
   float: left;
   clear: both;
-  height: 120px;
-  width: 320px;
+  height: 25%;
+  width: 100%;
 }
 
 #cancel {
