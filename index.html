@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="css/style.css" media="screen, print" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        var digits = [];
+
+        function setLock(state, callback) {
+          $.ajax({
+            url: 'http://api.pachube.com/v1/feeds/22380/datastreams/lock_state.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
+            type: 'PUT',
+            processData: false,
+            data: state.toString(),
+            success: callback
+          });
+        }
+
+        function openLock(callback) {
+          setLock(1, callback);
+        }
+
+        function closeLock(callback) {
+          setLock(0, callback);
+        }
+
+        $('.number').click(function() {
+          digits.push($(this).attr('id'));
+          //console.log(digits);
+        });
+
+        $('#cancel').click(function() {
+          digits = [];
+        });
+
+        $('#ok').click(function() {
+          if (digits.join('') == "1234") {
+            openLock(function() {
+              setTimeout(function() {
+                closeLock();
+              }, 15000); // 15 seconds
+            });
+          }
+          digits = [];
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="dialpad" class="container">
+      <div class="row span-24 last">
+        <a id="1" class="number span-8" href="#" onclick="return false;">1</a>
+        <a id="2" class="number span-8" href="#" onclick="return false;">2</a>
+        <a id="3" class="number span-8 last" href="#" onclick="return false;">3</a>
+      </div>
+      <div class="row span-24 last">
+        <a id="4" class="number span-8" href="#" onclick="return false;">4</a>
+        <a id="5" class="number span-8" href="#" onclick="return false;">5</a>
+        <a id="6" class="number span-8 last" href="#" onclick="return false;">6</a>
+      </div>
+      <div class="row span-24 last">
+        <a id="7" class="number span-8" href="#" onclick="return false;">7</a>
+        <a id="8" class="number span-8" href="#" onclick="return false;">8</a>
+        <a id="9" class="number span-8 last" href="#" onclick="return false;">9</a>
+      </div>
+      <div class="row span-24 last">
+        <a id="cancel" class="button span-8" href="#" onclick="return false;">×</a>
+        <a id="0" class="number span-8" href="#" onclick="return false;">0</a>
+        <a id="ok" class="button span-8 last" href="#" onclick="return false;">✔</a>
+      </div>
+    </div>
+  </body>
+</html>
