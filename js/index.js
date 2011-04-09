@@ -9,22 +9,24 @@ $(function() {
     });
   }
 
-  function setLock(state, callback) {
+  function openLock(name, callback) {
     $.ajax({
-      url: 'http://api.pachube.com/v1/feeds/22380/datastreams/lock_state.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
+      url: 'http://api.pachube.com/v1/feeds/22380/datastreams.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
       type: 'PUT',
       processData: false,
-      data: state.toString(),
+      data: "1,Paul",
       success: callback
     });
   }
 
-  function openLock(callback) {
-    setLock(1, callback);
-  }
-
   function closeLock(callback) {
-    setLock(0, callback);
+    $.ajax({
+      url: 'http://api.pachube.com/v1/feeds/22380/datastreams/lock_state.csv?key=ZwY_-EBddMqXB4GMZy3ATGCMTv6Nq26U1ua864LB-E8',
+      type: 'PUT',
+      processData: false,
+      data: "1",
+      success: callback
+    });
   }
 
   function pulse(first, second) {
@@ -41,9 +43,9 @@ $(function() {
   });
 
   $('#ok').click(function() {
-    if (digits.join('') == pin) {
+    if (digits.join('') == pauls_pin) {
       // WIN!
-      openLock(function() {
+      openLock("Paul", function() {
         setTimeout(function() {
           closeLock();
         }, 15000); // 15 seconds
