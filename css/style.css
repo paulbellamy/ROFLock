@@ -74,3 +74,15 @@ a:active {
   -webkit-box-shadow: 0 -1px -3px #999;
   border-bottom: 1px solid #222;
 }
+
+#win, #fail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 460px;
+  text-align: center;
+  line-height: 320px;
+  background-color: #555;
+}
+

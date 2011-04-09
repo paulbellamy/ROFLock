@@ -2,6 +2,9 @@ $(function() {
   var digits = [];
   var pauls_pin = "1234";
 
+  $('#win').fadeOut(0);
+  $('#fail').fadeOut(0);
+
   jQuery.fn.flash = function(first, second, complete) {
     var self = this;
     self.animate( { opacity: 0.5 }, first, 'linear', function() {
@@ -29,8 +32,29 @@ $(function() {
     });
   }
 
-  function pulse(first, second) {
-    $('a').flash(first, second);
+  function win() {
+    // exciting animation
+    $('#win').fadeIn('fast', function() {
+      setInterval(function() {
+        $('#win').fadeOut('fast');
+      }, 600);
+    });
+
+    // open sesame!
+    openLock("Paul", function() {
+      setTimeout(function() {
+        closeLock();
+      }, 15000); // 15 seconds
+    });
+  }
+
+  function fail() {
+    // menacing animation
+    $('#fail').fadeIn('fast', function() {
+      setInterval(function() {
+        $('#fail').fadeOut('fast');
+      }, 600);
+    });
   }
 
   $('.number').click(function() {
@@ -45,13 +69,10 @@ $(function() {
   $('#ok').click(function() {
     if (digits.join('') == pauls_pin) {
       // WIN!
-      openLock("Paul", function() {
-        setTimeout(function() {
-          closeLock();
-        }, 15000); // 15 seconds
-      });
+      win();
     } else {
       // FAIL!
+      fail();
     }
     digits = [];
   });
