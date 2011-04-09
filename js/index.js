@@ -1,6 +1,6 @@
 $(function() {
   var digits = [];
-  var pin = "1234";
+  var pauls_pin = "1234";
 
   jQuery.fn.flash = function(first, second, complete) {
     var self = this;
